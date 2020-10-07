@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 # Create your models here.
 
 
@@ -18,6 +18,8 @@ class FAR_DB(models.Model):
     temp_location = models.CharField(max_length=200)
 
     def __str__(self):
-        return (self.serial_num , " " , self.equ_type)
+        return (self.serial_num)
 
+    def get_absolute_url(self):
+        return revere('far',kwargs={'pk':self.pk})
 

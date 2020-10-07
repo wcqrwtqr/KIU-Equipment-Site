@@ -6,6 +6,32 @@
 
 <p>Here will find the far list </p> 
 
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">ID</th>
+			<th scope="col">Asset No</th>
+			<th scope="col">Serial No</th>
+			<th scope="col">Description</th>
+			<th scope="col">Location</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for fa in far_list  %}
+		<tr>
+			<th scope="row">1</th>
+			<td>{{ fa.asset_num  }}</td>
+			<td>{{ fa.serial_num  }}</td>
+			<td>{{ fa.description  }}</td>
+			<td>{{ fa.temp_location  }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+
+
 {% endblock %}
 
 
