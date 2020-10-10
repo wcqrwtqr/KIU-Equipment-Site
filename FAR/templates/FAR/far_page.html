@@ -15,16 +15,18 @@
 			<th scope="col">Serial No</th>
 			<th scope="col">Description</th>
 			<th scope="col">Location</th>
+			<th scope="col">BU</th>
 		</tr>
 	</thead>
 	<tbody>
-		{% for fa in far_list  %}
+		{% for fa in far_1 %}
 		<tr>
-			<th scope="row">1</th>
+			<th scope="row">{{ fa.id }}</th>
 			<td>{{ fa.asset_num  }}</td>
 			<td>{{ fa.serial_num  }}</td>
 			<td>{{ fa.description  }}</td>
-			<td>{{ fa.temp_location  }}</td>
+			<td>{{ fa.temp_location }}</td>
+			<td>{{ fa.BU }}</td>
 		</tr>
 		{% endfor %}
 	</tbody>

@@ -15,7 +15,7 @@ class FAR_DB(models.Model):
     nbv  = models.DecimalField(max_digits=10, decimal_places=2)
     acquisition_date  = models.DateField()
     equ_type = models.CharField(max_length=200)
-    temp_location = models.CharField(max_length=200)
+    temp_location = models.CharField(max_length=200, blank=True)
 
     def __str__(self):
         return (self.serial_num)
