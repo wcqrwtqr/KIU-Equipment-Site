@@ -5,4 +5,4 @@ from django.views.generic import TemplateView
 
 
 class JobsList(TemplateView):
-    template_name = 'jobs/Jobs_page.html'
+    template_name = 'Jobs/jobs_page.html'

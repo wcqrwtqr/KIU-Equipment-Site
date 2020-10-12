@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+
+<h1>Employees Home Page</h1>
+
+<p>Here you can find all the employees name list</p> 
+
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">ID</th>
+			<th scope="col">First Name</th>
+			<th scope="col">Last Name</th>
+			<th scope="col">Nationality</th>
+			<th scope="col">BL</th>
+			<th scope="col">BU</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for fa in emp_all  %}
+		<tr>
+			<th scope="row">{{ fa.OSID }}</th>
+			<td>{{ fa.first_name  }}</td>
+			<td>{{ fa.last_name  }}</td>
+			<td>{{ fa.nationality }}</td>
+			<td>{{ fa.BL }}</td>
+			<td>{{ fa.BU}}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+
+
+{% endblock %}
+
+
