@@ -16,6 +16,9 @@ class EmployeeDB(models.Model):
     BL = models.CharField(max_length= 3, default='SWT')
     grade = models.IntegerField(blank=True,default=8)
 
+    def get_absolute_url(self):
+        return revere('employee_detail',kwargs={'pk':self.pk})
+
     def __str__(self):
         return '%s %s'% (self.first_name, self.last_name)
 

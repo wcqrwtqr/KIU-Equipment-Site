@@ -21,5 +21,5 @@ class FAR_DB(models.Model):
         return (self.serial_num)
 
     def get_absolute_url(self):
-        return revere('far',kwargs={'pk':self.pk})
+        return revere('far_detail',kwargs={'pk':self.pk})
 

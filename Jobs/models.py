@@ -15,6 +15,8 @@ class JobsDB(models.Model):
     startDate = models.DateField(null=True)
     endDate = models.DateField(blank=True,null=True)
 
+    def get_absolute_url(self):
+        return revere('jobs_detail',kwargs={'pk':self.pk})
 
     def __str__(self):
         return '%s %s %s'% (self.JOBID, self.client, self.well)

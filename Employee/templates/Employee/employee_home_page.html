@@ -21,7 +21,7 @@
 	<tbody>
 		{% for fa in emp_all  %}
 		<tr>
-			<th scope="row">{{ fa.OSID }}</th>
+			<th scope="row" ><a href="{% url 'employee_detail' pk=fa.pk  %}" >{{ fa.OSID }}</a></th>
 			<td>{{ fa.first_name  }}</td>
 			<td>{{ fa.last_name  }}</td>
 			<td>{{ fa.nationality }}</td>
