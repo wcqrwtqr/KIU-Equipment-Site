@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'FAR',
     'Jobs',
     'Maintenance',
+    'Employee',
 ]
 
 MIDDLEWARE = [
