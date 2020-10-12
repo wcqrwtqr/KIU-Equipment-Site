@@ -6,6 +6,29 @@
 
 <p>Here will find the Jobs list </p> 
 
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">ID</th>
+			<th scope="col">Client</th>
+			<th scope="col">Well</th>
+			<th scope="col">Contract</th>
+			<th scope="col">BL</th>
+			<th scope="col">BU</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for fa in jobs_all  %}
+		<tr>
+			<th scope="row">{{ fa.JOBID }}</th>
+			<td>{{ fa.client  }}</td>
+			<td>{{ fa.well  }}</td>
+			<td>{{ fa.isContract }}</td>
+			<td>{{ fa.BL }}</td>
+			<td>{{ fa.BU}}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
 {% endblock %}
 
 
