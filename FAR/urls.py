@@ -3,6 +3,6 @@ from . import views
 #app_name = 'FAR'
 
 urlpatterns = [
-    #path('', views.Far_List.as_view(), name='far'),
+    path('far/<int:pk>', views.FarDetailView.as_view(), name='far_detail'),
     path('', views.FarListView.as_view(), name='far'),
 ]

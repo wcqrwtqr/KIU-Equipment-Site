@@ -12,6 +12,10 @@ class FarListView(ListView):
     context_object_name = 'far_1'
 
 
+class FarDetailView(DetailView):
+    template_name = 'FAR/far_detail.html'
+    queryset = models.FAR_DB.objects.all()
+    context_object_name = 'far_detail'
 
 
 

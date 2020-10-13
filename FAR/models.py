@@ -17,9 +17,9 @@ class FAR_DB(models.Model):
     equ_type = models.CharField(max_length=200)
     temp_location = models.CharField(max_length=200, blank=True)
 
-    def __str__(self):
-        return (self.serial_num)
 
     def get_absolute_url(self):
         return revere('far_detail',kwargs={'pk':self.pk})
 
+    def __str__(self):
+        return '%s %s'% (self.equ_type ,self.serial_num )

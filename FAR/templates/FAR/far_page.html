@@ -21,12 +21,12 @@
 	<tbody>
 		{% for fa in far_1 %}
 		<tr>
-			<th scope="row">{{ fa.id }}</th>
-			<td>{{ fa.asset_num  }}</td>
-			<td>{{ fa.serial_num  }}</td>
-			<td>{{ fa.description  }}</td>
-			<td>{{ fa.temp_location }}</td>
+			<th scope="row"> <a href="{% url 'far_detail' pk=fa.pk %}">{{ fa.asset_num }}</a></th>
+			<td>{{ fa.equ_type }}</td>
 			<td>{{ fa.BU }}</td>
+			<td>{{ fa.serial_num }}</td>
+			<td>{{ fa.description }}</td>
+			<td>{{ fa.temp_location }}</td>
 		</tr>
 		{% endfor %}
 	</tbody>
