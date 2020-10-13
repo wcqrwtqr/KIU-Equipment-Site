@@ -2,7 +2,7 @@
 
 {% block body_block %}
 
-<h1>Jobs Page</h1>
+<h1>Jobs Main Page</h1>
 
 <p>Here will find the Jobs list </p> 
 
@@ -15,17 +15,21 @@
 			<th scope="col">Contract</th>
 			<th scope="col">BL</th>
 			<th scope="col">BU</th>
+			<th scope="col">Start Date</th>
+			<th scope="col">End Date</th>
 		</tr>
 	</thead>
 	<tbody>
 		{% for fa in jobs_all  %}
 		<tr>
-			<th scope="row">{{ fa.JOBID }}</th>
+			<th scope="row"> <a href="{% url 'jobs_detail' pk=fa.pk  %}">{{ fa.JOBID }}</a></th>
 			<td>{{ fa.client  }}</td>
 			<td>{{ fa.well  }}</td>
 			<td>{{ fa.isContract }}</td>
 			<td>{{ fa.BL }}</td>
 			<td>{{ fa.BU}}</td>
+			<td>{{ fa.startDate}}</td>
+			<td>{{ fa.endDate}}</td>
 		</tr>
 		{% endfor %}
 	</tbody>

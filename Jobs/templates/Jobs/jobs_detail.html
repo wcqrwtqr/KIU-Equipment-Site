@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block body_block %}
+
+<h3>Jobs Details view</h3>
+
+<p>Here is the detail view for the Jobs </p> 
+<div class=conainer align='middle'>
+
+	<h3>Job ID: {{ jobs_detail.JOBID }}</h3>
+	<h3>Client : {{ jobs_detail.client	}}</h3>
+	<h3>Field :  {{ jobs_detail.field	}}</h3>
+	<h3>Well Name :{{ jobs_detail.well	}}</h3>
+	<h3>BU  : {{ jobs_detail.BU	}}</h3>
+	<h3>BL  :  {{ jobs_detail.BL	}}</h3>
+	<h3>Job Description  : {{ jobs_detail.description	}}</h3>
+	<h3>Is Contract  : {{ jobs_detail.isContract }}</h3>
+	<h3>Start Date  :   {{ jobs_detail.startDate}}</h3>
+	<h3>End Date  :   {{ jobs_detail.endDate}}</h3>
+
+	{% if jobs_detail.endDate is null %}
+	<h2 color='red'>Job is running </h2>
+	{% else  %}
+	<h2 color='blue'>Job ended</h2>
+	{% endif  %}
+	<a class="btn btn-outline-dark" href="{% url 'jobs' %}">Back to Jobs</a>
+</div>
+
+{% endblock %}
+
+
