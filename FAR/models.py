@@ -1,5 +1,5 @@
 from django.db import models
-from django.urls import reverse
+from  django.urls import reverse
 # Create your models here.
 
 
@@ -17,6 +17,8 @@ class FAR_DB(models.Model):
     equ_type = models.CharField(max_length=200)
     temp_location = models.CharField(max_length=200, blank=True)
 
+    def addFar(self):
+        self.save()
 
     def get_absolute_url(self):
         return revere('far_detail',kwargs={'pk':self.pk})
