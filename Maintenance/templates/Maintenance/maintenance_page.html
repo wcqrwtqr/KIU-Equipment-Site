@@ -6,6 +6,27 @@
 
 <p>Here will find the Maintenance list </p> 
 
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">Asset</th>
+			<th scope="col">Maintenance Type</th>
+			<th scope="col">Main Cost</th>
+			<th scope="col">Maintenance Start</th>
+			<th scope="col">Maintenance Expiry</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for fa in main_all  %}
+		<tr>
+			<th scope="row"> <a href="{% url 'maintenance_detail' pk=fa.pk  %}">{{ fa.asset }}</a></th>
+			<td>{{ fa.ms_type  }}</td>
+			<td>{{ fa.main_cost  }}</td>
+			<td>{{ fa.main_date_start }}</td>
+			<td>{{ fa.main_date_end }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
 {% endblock %}
 
 

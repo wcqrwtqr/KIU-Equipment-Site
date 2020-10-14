@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block body_block %}
+
+<h3>Maintenance details</h3>
+
+<p>Here is the details for the maintenance</p> 
+<div class=conainer align='middle'>
+
+	<h3> Main Type: {{ maintenance_detail.ms_type }}</h3>
+	<h3>Start Date : {{ maintenance_detail.main_date_start	}}</h3>
+	<h3>End Date :  {{ maintenance_detail.main_date_end	}}</h3>
+	<h3>Main Cost :{{ maintenance_detail.main_cost	}}</h3>
+	<h3>Asset  : {{ maintenance_detail.asset	}}</h3>
+	<h3>Expiry  :   {{ maintenance_detail.expiry_date}}</h3>
+
+
+	<a class="btn btn-outline-dark" href="{% url 'maintenance' %}">Back to Maintenance</a>
+</div>
+
+{% endblock %}
+
+
