@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block body_block %}
+
+<h3>Jobs Master Info Page</h3>
+
+<p>Here is the jobs master info page</p> 
+<div class=conainer align='middle'>
+	<h3>Jobs ID: {{ jobs_master_info.job }}</h3>
+	<h4>CO2 : {{ jobs_master_info.co2	}}</h4>
+	<h3>H2S :  {{ jobs_master_info.h2s	}}</h3>
+	<h3>Oil Rate :{{ jobs_master_info.oilRate	}}</h3>
+	<h3>Assets :{{ jobs_master_info.assets	}}</h3>
+
+
+</div>
+	<a class="btn btn-outline-dark" href="{% url 'jobs'  %}">Back to Jobs</a>
+
+{% endblock %}
+
+

@@ -7,7 +7,6 @@
 
 <p>Here is the detail view for the Jobs </p> 
 <div class=conainer align='middle'>
-
 	<h3>Job ID: {{ jobs_detail.JOBID }}</h3>
 	<h3>Client : {{ jobs_detail.client	}}</h3>
 	<h3>Field :  {{ jobs_detail.field	}}</h3>
@@ -24,8 +23,9 @@
 	{% else  %}
 	<h2 color='blue'>Job ended</h2>
 	{% endif  %}
-	<a class="btn btn-outline-dark" href="{% url 'jobs' %}">Back to Jobs</a>
 </div>
+	<a class="btn btn-outline-dark" href="{% url 'jobs' %}">Back to Jobs</a>
+	<a class="btn btn-outline-dark" href="{% url 'jobs_master_info' pk=jobs_detail.pk %}">See equipment</a>
 
 {% endblock %}
 
