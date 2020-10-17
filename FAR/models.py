@@ -25,3 +25,5 @@ class FAR_DB(models.Model):
 
     def __str__(self):
         return '%s %s'% (self.equ_type ,self.serial_num )
+    class Meta:
+        ordering = ['equ_type']

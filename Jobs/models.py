@@ -22,6 +22,8 @@ class JobsDB(models.Model):
     def __str__(self):
         return '%s %s %s'% (self.JOBID, self.client, self.well)
 
+    class Meta:
+        ordering = ['client']
 
 class JobMasterInfo(models.Model):
     job = models.ForeignKey(JobsDB,null=True, on_delete=models.CASCADE)
@@ -37,3 +39,6 @@ class JobMasterInfo(models.Model):
 
     def __str__(self):
         return '%s'% (self.job )
+
+    class Meta:
+        ordering = ['job']

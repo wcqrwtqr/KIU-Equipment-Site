@@ -7,20 +7,18 @@
 <p>Here is the detail of the employees</p> 
 <div class=conainer align='middle'>
 
-<h3>ID : {{ emp_detail.OSID	}}</h3>
-<h3>First Name :  {{ emp_detail.first_name	}}</h3>
-<h3>Last Name :{{ emp_detail.last_name	}}</h3>
-<h3>Nationality  : {{ emp_detail.nationality	}}</h3>
-<h3>Expat  :  {{ emp_detail.isExpat	}}</h3>
-<h3>Employee  : {{ emp_detail.isEmployee	}}</h3>
-<h3>Rotation  :   {{ emp_detail.rotation	}}</h3>
-<h3>BL  :  {{ emp_detail.BL }}</h3>
-<h3>Grade  : {{ emp_detail.grade	}}</h3>
+	<h3>ID : {{ emp_detail.OSID	}}</h3>
+	<h3>First Name :  {{ emp_detail.first_name	}}</h3>
+	<h3>Last Name :{{ emp_detail.last_name	}}</h3>
+	<h3>Nationality  : {{ emp_detail.nationality	}}</h3>
+	<h3>Expat  :  {{ emp_detail.isExpat	}}</h3>
+	<h3>Employee  : {{ emp_detail.isEmployee	}}</h3>
+	<h3>Rotation  :   {{ emp_detail.rotation	}}</h3>
+	<h3>BL  :  {{ emp_detail.BL }}</h3>
+	<h3>Grade  : {{ emp_detail.grade	}}</h3>
 
-<a class="btn btn-outline-dark" href="{% url 'employee' %}">Back to Employee</a>
+	<a class="btn btn-outline-dark" href="{% url 'employee' %}">Back to Employee</a>
 </div>
-
-
 
 {% endblock %}
 

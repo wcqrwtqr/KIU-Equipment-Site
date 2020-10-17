@@ -38,13 +38,12 @@ class FarCreateView(CreateView):
 #   return render(request, 'FAR/far_page.html', {'form': form})
 
 
-
+# did not get the save functionality fixed yet
 def addFar(request):
     form= FarForm(request.POST or None)
     if form.is_valid():
         form.addFar()
         form.save()
-        
         context= {'form': form }
 
     return render(request, 'FAR/far_page.html', context)

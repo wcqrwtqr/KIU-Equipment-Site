@@ -13,6 +13,11 @@ class JobsDetailView(DetailView):
     queryset = JobsDB.objects.all()
     context_object_name = 'jobs_detail'
     template_name = 'Jobs/jobs_detail.html'
+#    def get_context_data(self,**kwargs):
+#        context = super().get_context_data(**kwargs)
+#        context['jobsDB'] = JobsDB
+#        context['jobMasterInfo']= JobMasterInfo
+#        return context
 
 class JobsMasterInfoView(DetailView):
     queryset = JobMasterInfo.objects.all()
