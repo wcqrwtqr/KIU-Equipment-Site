@@ -6,14 +6,14 @@ from FAR.models import FAR_DB
 class JobsDB(models.Model):
     JOBID = models.CharField(max_length = 20 ,unique=True,blank=False)
     client = models.CharField(max_length=255,blank=False)
-    field = models.CharField(max_length=255,blank=True)
-    well = models.CharField(max_length=255,blank=False)
+    field = models.CharField(max_length=255,blank=True, null=True)
+    well = models.CharField(max_length=255,blank=False, null=True)
     country = models.CharField(max_length=255,blank=False,default='Iraq')
-    BU = models.CharField(max_length= 3, default='KIU')
-    BL = models.CharField(max_length= 3, default='SWT')
-    description = models.CharField(max_length= 800, blank=True)
-    isContract = models.BooleanField(default=True)
-    startDate = models.DateField(null=True)
+    BU = models.CharField(max_length= 3, default='KIU', null=True, blank=True)
+    BL = models.CharField(max_length= 3, default='SWT', null=True, blank=True)
+    description = models.CharField(max_length= 800, blank=True, null=True)
+    isContract = models.BooleanField(default=True, null=True, blank=True)
+    startDate = models.DateField(null=True, blank=True)
     endDate = models.DateField(blank=True,null=True)
 
     def get_absolute_url(self):

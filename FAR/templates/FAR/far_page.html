@@ -7,6 +7,7 @@
 <p>Here will find the far list </p> 
 
 <a class="btn btn-outline-dark" href="{% url 'far_new' %}">Add New Asset</a>
+<br>
 
 <table class="table table-striped">
 	<thead>
@@ -17,6 +18,8 @@
 			<th scope="col">Description</th>
 			<th scope="col">Location</th>
 			<th scope="col">BU</th>
+			<th scope="col">Update</th>
+			<th scope="col">Delete</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -28,6 +31,8 @@
 			<td>{{ fa.serial_num }}</td>
 			<td>{{ fa.description }}</td>
 			<td>{{ fa.temp_location }}</td>
+			<td><a href="#">Update</a></td>
+			<td><a href="#">Delete</a></td>
 		</tr>
 		{% endfor %}
 	</tbody>

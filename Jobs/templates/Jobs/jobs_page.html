@@ -17,6 +17,8 @@
 			<th scope="col">BU</th>
 			<th scope="col">Start Date</th>
 			<th scope="col">End Date</th>
+			<th scope="col">Update</th>
+			<th scope="col">Delete</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -30,10 +32,13 @@
 			<td>{{ fa.BU}}</td>
 			<td>{{ fa.startDate}}</td>
 			<td>{{ fa.endDate}}</td>
+			<td><a href="#">Update</a></td>
+			<td><a href="#">Delete</a></td>
 		</tr>
 		{% endfor %}
 	</tbody>
 </table >
+<a class="btn btn-outline-dark" href="{% url 'jobs_new' %}">Add new Job</a>
 {% endblock %}
 
 

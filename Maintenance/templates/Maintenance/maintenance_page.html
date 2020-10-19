@@ -6,6 +6,7 @@
 
 <p>Here will find the Maintenance list </p> 
 
+<a class="btn btn-outline-dark" href="{% url 'maintenance_new' %}">Add New Maintenance</a>
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -27,6 +28,7 @@
 		</tr>
 		{% endfor %}
 	</tbody>
+</table >
 {% endblock %}
 
 

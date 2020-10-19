@@ -4,11 +4,11 @@ from FAR.models import FAR_DB
 # Create your models here.
 
 class MaintenanceDB(models.Model):
-    main_date_start = models.DateField()
-    ms_type= models.CharField(max_length=20)
-    main_date_end = models.DateField(blank=True)
-    main_cost = models.DecimalField(max_digits=5,decimal_places=2,blank=True)
-    expiry_date = models.DateField(blank=True)
+    main_date_start = models.DateField( null=True)
+    ms_type= models.CharField(max_length=20, null=True)
+    main_date_end = models.DateField(blank=True, null=True)
+    main_cost = models.DecimalField(max_digits=5, null=True,decimal_places=2,blank=True)
+    expiry_date = models.DateField(blank=True, null=True)
     asset = models.ForeignKey(FAR_DB,on_delete=models.CASCADE)
 
 
