@@ -6,7 +6,8 @@
     <form method="POST" class="job-form">
     {% csrf_token %}
     {{form.as_p}}
-    <button type="submit" class="save btn-default">Save</button>
+    <button type="submit" class="btn btn-success">Save</button>
+	<a class="btn btn-outline-dark" href="{% url 'jobs' %}">Cancel</a>
     </form>
 
 {% endblock %}

@@ -6,7 +6,6 @@
 
 <p>Here will find the Maintenance list </p> 
 
-<a class="btn btn-outline-dark" href="{% url 'maintenance_new' %}">Add New Maintenance</a>
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -15,6 +14,8 @@
 			<th scope="col">Main Cost</th>
 			<th scope="col">Maintenance Start</th>
 			<th scope="col">Maintenance Expiry</th>
+			<th scope="col">Update</th>
+			<th scope="col">Delete</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -25,10 +26,13 @@
 			<td>{{ fa.main_cost  }}</td>
 			<td>{{ fa.main_date_start }}</td>
 			<td>{{ fa.main_date_end }}</td>
+			<td><a href="#" class="btn btn-info btn-sm">Update</a></td>
+			<td><a href="#"class="btn btn-danger btn-sm">Delete</a></td>
 		</tr>
 		{% endfor %}
 	</tbody>
 </table >
+<a class="btn btn-outline-dark" href="{% url 'maintenance_new' %}">Add New Maintenance</a>
 {% endblock %}
 
 

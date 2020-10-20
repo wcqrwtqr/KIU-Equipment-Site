@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
 {% block body_block %}
-<h1>New Fixed Asset</h1>
+    <h1>Add New Employee</h1>
 
-<form method="POST" class="post-form">
+    <form method="POST" class="job-form">
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit" class="btn btn-success">Save</button>
-    <a class="btn btn-outline-dark" href="{% url 'far' %}">Cancel</a>
-</form>
+	<a class="btn btn-outline-dark" href="{% url 'employee' %}">Cancel</a>
+    </form>
 
 {% endblock %}
