@@ -29,6 +29,9 @@ class MaintenanceCreate(CreateView ):
         self.object = save()
         return super().form_valid(form)
 
-
+class MaintenanceDeleteView(DeleteView):
+    template_name = 'Maintenance/maintenance_confirm_delete.html'
+    model = MaintenanceDB
+    success_url = reverse_lazy('maintenance')
 
 

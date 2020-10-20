@@ -27,5 +27,9 @@ class EmployeeCreate(CreateView):
         self.object = save()
         return super().from_valid(form)
 
+class EmployeeDelete(DeleteView):
+    template_name = 'Employee/employee_confirm_delete.html'
+    model = models.EmployeeDB
+    success_url = reverse_lazy('employee')
 
 

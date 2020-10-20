@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import TemplateView,ListView,DetailView, View, CreateView
+from django.views.generic import TemplateView,ListView,DetailView, View, CreateView, DeleteView
 from .models import JobsDB, JobMasterInfo
 from django.contrib.auth.decorators import login_required
 from django.urls import  reverse_lazy
@@ -29,7 +29,10 @@ class JobsCreate(CreateView ):
         self.object = save()
         return super().form_valid(form)
 
-
+class JobsDeleteView(DeleteView):
+    template_name = 'Jobs/jobs_confirm_delete.html'
+    model = models.JobsDB
+    success_url = reverse_lazy('jobs')
 
 class JobsMasterInfoView(DetailView):
     queryset = JobMasterInfo.objects.all()

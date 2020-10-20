@@ -1,5 +1,4 @@
-from django.views.generic import TemplateView,ListView, DetailView, View, CreateView
-
+from django.views.generic import TemplateView,ListView, DetailView, View, CreateView, DeleteView
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import  login_required
 from django.urls import  reverse_lazy
@@ -31,5 +30,9 @@ class FarCreateView(CreateView):
         return super().form_valid(form)
 
 
+class FarDeleteView(DeleteView):
+    model = models.FAR_DB
+    success_url = reverse_lazy('far')
+    template_name = 'FAR/far_confirm_delete.html'
 
 
