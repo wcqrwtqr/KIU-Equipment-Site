@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DeleteView, View, DetailView, CreateView
+from django.views.generic import TemplateView, ListView, DeleteView, View, DetailView, CreateView, UpdateView
 from . import models
 from django.urls import reverse_lazy
 from .forms import *
@@ -31,5 +31,15 @@ class EmployeeDelete(DeleteView):
     template_name = 'Employee/employee_confirm_delete.html'
     model = models.EmployeeDB
     success_url = reverse_lazy('employee')
+
+
+class EmployeeUpdateView(UpdateView):
+    template_name = 'Employee/employee_update.html'
+    model = models.EmployeeDB
+    success_url = reverse_lazy('employee')
+    fields = "__all__"
+
+
+
 
 

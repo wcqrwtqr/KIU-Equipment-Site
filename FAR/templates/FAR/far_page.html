@@ -30,7 +30,7 @@
 			<td>{{ fa.serial_num }}</td>
 			<td>{{ fa.description }}</td>
 			<td>{{ fa.temp_location }}</td>
-			<td><a href="#" class="btn btn-info btn-sm">Update</a></td>
+			<td><a href="{% url 'far_update' pk=fa.pk  %}" class="btn btn-info btn-sm">Update</a></td>
 			<td><a href="{% url 'far_delete' pk=fa.pk  %}"class="btn btn-danger btn-sm">Delete</a></td>
 		</tr>
 		{% endfor %}

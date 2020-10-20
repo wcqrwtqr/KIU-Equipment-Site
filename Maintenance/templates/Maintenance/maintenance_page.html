@@ -26,7 +26,7 @@
 			<td>{{ fa.main_cost  }}</td>
 			<td>{{ fa.main_date_start }}</td>
 			<td>{{ fa.main_date_end }}</td>
-			<td><a href="#" class="btn btn-info btn-sm">Update</a></td>
+			<td><a href="{% url 'maintenance_update' pk=fa.pk  %}" class="btn btn-info btn-sm">Update</a></td>
 			<td><a href="{% url 'maintenance_delete' pk=fa.pk  %}"class="btn btn-danger btn-sm">Delete</a></td>
 		</tr>
 		{% endfor %}

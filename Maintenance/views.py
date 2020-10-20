@@ -35,3 +35,14 @@ class MaintenanceDeleteView(DeleteView):
     success_url = reverse_lazy('maintenance')
 
 
+class MaintenanceUpdateView(UpdateView):
+    template_name = 'Maintenance/maintenance_update.html'
+    model = MaintenanceDB
+    success_url = reverse_lazy('maintenance')
+    fields = "__all__"
+
+
+
+
+
+

@@ -19,7 +19,7 @@ class FAR_DB(models.Model):
 
 
     def get_absolute_url(self):
-        return revere('far_detail',kwargs={'pk':self.pk})
+        return reverse('far_detail',kwargs={'pk':self.pk})
 
     def __str__(self):
         return '%s %s'% (self.equ_type ,self.serial_num )

@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView,ListView, DetailView, View, CreateView, DeleteView
+from django.views.generic import TemplateView,ListView, DetailView, View, CreateView, DeleteView, UpdateView
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import  login_required
 from django.urls import  reverse_lazy
@@ -34,5 +34,15 @@ class FarDeleteView(DeleteView):
     model = models.FAR_DB
     success_url = reverse_lazy('far')
     template_name = 'FAR/far_confirm_delete.html'
+
+class FarUpdateView(UpdateView):
+    model = models.FAR_DB
+    fields = '__all__'
+    template_name = 'FAR/far_update.html'
+    success_url = reverse_lazy('far')
+
+
+
+
 
 

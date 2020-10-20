@@ -17,7 +17,7 @@ class JobsDB(models.Model):
     endDate = models.DateField(blank=True,null=True)
 
     def get_absolute_url(self):
-        return revere('jobs_detail',kwargs={'pk':self.pk})
+        return reverse('jobs_detail',kwargs={'pk':self.pk})
 
     def __str__(self):
         return '%s %s %s'% (self.JOBID, self.client, self.well)
@@ -35,7 +35,7 @@ class JobMasterInfo(models.Model):
     description = models.CharField(max_length= 800, blank=True)
 
     def get_absolute_url(self):
-        return revere('jobs_master_info',kwargs={'pk':self.pk})
+        return reverse('jobs_master_info',kwargs={'pk':self.pk})
 
     def __str__(self):
         return '%s'% (self.job )
