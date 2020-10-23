@@ -11,6 +11,7 @@ class FarListView(ListView):
     template_name = 'FAR/far_page.html'
     queryset = models.FAR_DB.objects.all()
     context_object_name = 'far_1'
+    paginate_by = 25 # Add the number of rows you wish to present in the webpage
 
 
 class FarDetailView(DetailView):
