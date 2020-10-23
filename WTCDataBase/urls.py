@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from django.conf import settings
+from django.conf.urls import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,3 +28,8 @@ urlpatterns = [
     path('Maintenance/', include('Maintenance.urls')),
     path('Employee/', include('Employee.urls')),
 ]
+
+
+# if settings.DEBUG:
+#     urlpatterns += patterns + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+#     urlpatterns += patterns + static(settings.STATIC_URL, document_root.STATIC_ROOT)
