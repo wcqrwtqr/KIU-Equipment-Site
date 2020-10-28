@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load bootstrap  %}
 
 {% block body_block %}
 
@@ -6,29 +7,24 @@
 
 <p>Here will find the far list </p> 
 
+<!-- Adding the filter form here --> 
+<div class="container" >
+	<!-- I liked this method below as it shows the table in a better way -->
+	<form  method="GET" >
+		<table>
+			{{ filter.form.as_table}}
+		</table>
+		<button type="submit" class="btn btn-primary" >Search</button>
+	</form>
+</div>
+
+<!-- Below is the pages counter -->
 {% for contact in page_obj %}
 {# Each "contact" is a Contact model object. #}
 <!-- {{ contact.full_name|upper }}<br> -->
 <!-- ... -->
 {% endfor %}
 
-<!-- <div class="pagination"> -->
-<!-- 	<span class="step-links"> -->
-<!-- 		{% if page_obj.has_previous %} -->
-<!-- 		<a href="?page=1">&laquo; first </a> -->
-<!-- 		<a href="?page={{ page_obj.previous_page_number }}">_ previous </a> -->
-<!-- 		{% endif %} -->
-<!-- 		<span class="current"> -->
-<!-- 			Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}. -->
-<!-- 		</span> -->
-<!-- 		{% if page_obj.has_next %} -->
-<!-- 		<a href="?page={{ page_obj.next_page_number }}"> next_ </a> -->
-<!-- 		<a href="?page={{ page_obj.paginator.num_pages }}"> last &raquo;</a> -->
-<!-- 		{% endif %} -->
-<!-- 	</span> -->
-<!-- </div> -->
-
-<!-- <br> -->
 
 <nav aria-label="Page navigation example">
 	<ul class="pagination">
@@ -50,7 +46,7 @@
 	<thead>
 		<tr>
 			<th scope="col">ID</th>
-			<th scope="col">Asset No</th>
+			<th scope="col">Type</th>
 			<th scope="col">Serial No</th>
 			<th scope="col">Description</th>
 			<th scope="col">Location</th>
@@ -60,14 +56,15 @@
 		</tr>
 	</thead>
 	<tbody>
-		{% for fa in far_1 %}
+		{#<!-- {% for fa in far_1 %} -->#}
+		{% for fa in filter.qs %}
 		<tr>
 			<th scope="row"> <a href="{% url 'far_detail' pk=fa.pk %}">{{ fa.asset_num }}</a></th>
 			<td>{{ fa.equ_type }}</td>
-			<td>{{ fa.BU }}</td>
 			<td>{{ fa.serial_num }}</td>
 			<td>{{ fa.description }}</td>
 			<td>{{ fa.temp_location }}</td>
+			<td>{{ fa.BU }}</td>
 			<td><a href="{% url 'far_update' pk=fa.pk  %}" class="btn btn-info btn-sm">Update</a></td>
 			<td><a href="{% url 'far_delete' pk=fa.pk  %}"class="btn btn-danger btn-sm">Delete</a></td>
 		</tr>
@@ -76,6 +73,8 @@
 </table>
 
 <a class="btn btn-outline-dark" href="{% url 'far_new' %}">Add New Asset</a>
+<br>
+<br>
 
 
 {% endblock %}

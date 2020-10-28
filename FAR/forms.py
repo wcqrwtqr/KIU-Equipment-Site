@@ -6,3 +6,4 @@ class FarForm(forms.ModelForm):
         model = FAR_DB
         fields = '__all__'
 
+

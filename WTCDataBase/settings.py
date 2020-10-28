@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'Jobs',
     'Maintenance',
     'Employee',
+    'django_filters',
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [
