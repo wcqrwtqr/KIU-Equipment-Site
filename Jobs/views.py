@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.urls import  reverse_lazy
 from .forms import *
 from .import models
+from .filters import Jobsfilter
 # Create your views here.
 
 
@@ -12,6 +13,11 @@ class JobsHomePage(ListView):
     template_name = 'Jobs/jobs_page.html'
     queryset = JobsDB.objects.all()
     context_object_name = 'jobs_all'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = Jobsfilter(self.request.GET, queryset=self.queryset)
+        return context
 
 class JobsDetailView(DetailView):
     queryset = JobsDB.objects.all()

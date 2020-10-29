@@ -6,6 +6,19 @@
 
 <p>Here will find the Jobs list </p> 
 
+<div class="container" >
+	<!-- I liked this method below as it shows the table in a better way -->
+	<form  method="GET" >
+		<table>
+			{{ filter.form.as_table}}
+		</table>
+		<button type="submit" class="btn btn-primary" >Search</button>
+	</form>
+</div>
+<br>
+
+
+
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -22,7 +35,8 @@
 		</tr>
 	</thead>
 	<tbody>
-		{% for fa in jobs_all  %}
+		{#{% for fa in jobs_all  %} This is the old code before adding the filter   #}
+		{% for fa in filter.qs %}
 		<tr>
 			<th scope="row"> <a href="{% url 'jobs_detail' pk=fa.pk  %}">{{ fa.JOBID }}</a></th>
 			<td>{{ fa.client  }}</td>

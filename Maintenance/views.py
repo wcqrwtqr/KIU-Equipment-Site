@@ -3,13 +3,18 @@ from django.views.generic import TemplateView,ListView,DetailView,UpdateView,Del
 from .models import MaintenanceDB
 from django.urls import  reverse_lazy
 from .forms import MaintenanceForm
-
+from .filters import Maintenancefilter
 # Create your views here.
 
 class MaintenanceHomePage(ListView):
     template_name = 'Maintenance/maintenance_page.html'
     queryset = MaintenanceDB.objects.all()
     context_object_name = 'main_all'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = Maintenancefilter(self.request.GET, queryset=self.queryset)
+        return context
 
 class MaintenanceDetailView(DetailView):
     queryset = MaintenanceDB.objects.all()

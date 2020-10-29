@@ -3,12 +3,19 @@ from django.views.generic import TemplateView, ListView, DeleteView, View, Detai
 from . import models
 from django.urls import reverse_lazy
 from .forms import *
+from .filters import Employeefilter
 # Create your views here.
 
 class EmployeeHomePage(ListView):
     template_name = 'Employee/employee_home_page.html'
     queryset = models.EmployeeDB.objects.all()
     context_object_name = 'emp_all'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = Employeefilter(self.request.GET, queryset=self.queryset)
+        return context
+
 
 class EmployeeDetail(DetailView):
     model = models.EmployeeDB

@@ -7,6 +7,21 @@
 <p>Here you can find all the employees name list</p> 
 
 
+<!-- Adding the filter form here --> 
+<div class="container" >
+	<!-- I liked this method below as it shows the table in a better way -->
+	<form  method="GET" >
+		<table>
+			{{ filter.form.as_table}}
+		</table>
+		<button type="submit" class="btn btn-primary" >Search</button>
+	</form>
+</div>
+
+<br>
+
+
+
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -21,7 +36,8 @@
 		</tr>
 	</thead>
 	<tbody>
-		{% for fa in emp_all  %}
+		{#{% for fa in emp_all%}#}
+		{% for fa in filter.qs %}
 		<tr>
 			<th scope="row" ><a href="{% url 'employee_detail' pk=fa.pk  %}" >{{ fa.OSID }}</a></th>
 			<td>{{ fa.first_name  }}</td>
@@ -37,6 +53,8 @@
 </table>
 
 <a class="btn btn-outline-dark" href="{% url 'employee_new' %}">Add new Employee</a>
+<br>
+<br>
 
 
 {% endblock %}
