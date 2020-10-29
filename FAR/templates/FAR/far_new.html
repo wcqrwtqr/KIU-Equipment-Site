@@ -5,7 +5,9 @@
 
 <form method="POST" class="post-form">
     {% csrf_token %}
-    {{form.as_p}}
+    <table>
+    {{form.as_table}}
+    </table>
 	<!-- {{form.acquisition_date}} -->
     <button type="submit" class="btn btn-success">Save</button>
     <a class="btn btn-outline-dark" href="{% url 'far' %}">Cancel</a>
