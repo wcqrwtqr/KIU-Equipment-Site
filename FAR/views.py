@@ -37,7 +37,6 @@ class FarCreateView(CreateView):
         self.object = save()
         return super().form_valid(form)
 
-
 class FarDeleteView(DeleteView):
     model = models.FAR_DB
     success_url = reverse_lazy('far')
