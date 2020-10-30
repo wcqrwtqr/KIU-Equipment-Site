@@ -6,21 +6,10 @@
 <form method="POST" class="post-form">
     {% csrf_token %}
     <table>
-    {{form.as_table}}
+        {{form.as_table}}
     </table>
-	<!-- {{form.acquisition_date}} -->
     <button type="submit" class="btn btn-success">Save</button>
     <a class="btn btn-outline-dark" href="{% url 'far' %}">Cancel</a>
 </form>
-		<!-- <script> -->
-		<!-- 	$(function() { -->
-		<!-- 					$( ".datepicker" ).datepicker({ -->
-		<!-- 									changeMonth: true, -->
-		<!-- 									changeYear: true, -->
-		<!-- 									yearRange: "1900:2052", -->
-		<!-- 									// You can put more options here. -->
-		<!-- 								}); -->
-		<!-- 				}); -->
-		<!-- </script> -->
 
 {% endblock %}
