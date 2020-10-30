@@ -5,6 +5,7 @@ from django.urls import  reverse_lazy
 from . import models
 from .forms import FarForm
 from .filters import FARfilter
+from django import forms
 # Create your views here.
 
 
@@ -47,9 +48,6 @@ class FarUpdateView(UpdateView):
     fields = '__all__'
     template_name = 'FAR/far_update.html'
     success_url = reverse_lazy('far')
-
-
-
 
 
 

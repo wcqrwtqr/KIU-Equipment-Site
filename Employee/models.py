@@ -15,6 +15,7 @@ class EmployeeDB(models.Model):
     BU = models.CharField(max_length= 3, default='KIU')
     BL = models.CharField(max_length= 3, default='SWT')
     grade = models.IntegerField(blank=True,default=8)
+    seniority_date = models.DateField(null=True, blank=True)
 
     def get_absolute_url(self):
         return reverse('employee_detail',kwargs={'pk':self.pk})
