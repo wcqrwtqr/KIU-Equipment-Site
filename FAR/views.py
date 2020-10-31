@@ -8,12 +8,16 @@ from .filters import FARfilter
 from django import forms
 # Create your views here.
 
+#TODO Make the files upload for the model and forms
+#TODO make the jobs select equipment form
+
+
 
 class FarListView(ListView):
     template_name = 'FAR/far_page.html'
-    queryset = models.FAR_DB.objects.all()
     context_object_name = 'far_1'
     paginate_by = 35 # Add the number of rows you wish to present in the webpage
+    queryset = models.FAR_DB.objects.all()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
