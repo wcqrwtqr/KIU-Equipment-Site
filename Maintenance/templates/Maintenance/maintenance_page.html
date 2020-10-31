@@ -3,19 +3,21 @@
 {% block body_block %}
 
 <h1>Maintenance Page</h1>
-
 <p>Here will find the Maintenance list </p> 
-
-
 <!-- Adding the filter form here --> 
-<div class="container" >
-	<!-- I liked this method below as it shows the table in a better way -->
-	<form  method="GET" >
-		<table>
-			{{ filter.form.as_table}}
-		</table>
-		<button type="submit" class="btn btn-primary" >Search</button>
-	</form>
+<div class="row">
+	<div class="col">
+		<div class="card card-body" >
+			<!-- I liked this method below as it shows the table in a better way -->
+			<form  method="GET" >
+				<table>
+					{{ filter.form.as_table}}
+				</table>
+				<button type="submit" class="btn btn-primary" >Search</button>
+				<a class="btn btn-outline-dark" href="{% url 'maintenance_new' %}">Add New Maintenance</a>
+			</form>
+		</div>
+	</div>
 </div>
 <br>
 <table class="table table-striped">
@@ -45,7 +47,6 @@
 		{% endfor %}
 	</tbody>
 </table >
-<a class="btn btn-outline-dark" href="{% url 'maintenance_new' %}">Add New Maintenance</a>
 {% endblock %}
 
 

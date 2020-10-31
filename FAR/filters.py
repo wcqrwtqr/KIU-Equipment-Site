@@ -10,7 +10,6 @@ class FARfilter(django_filters.FilterSet):
 
     class Meta:
         model  = FAR_DB
-        # fields = ('serial_num','BL','BU','equ_type','temp_location','description')
         fields = {
             'equ_type' : ['icontains'],
             'serial_num' : ['icontains'],
@@ -19,7 +18,6 @@ class FARfilter(django_filters.FilterSet):
             'description' : ['icontains'],
             'BL' : ['icontains'],
         }
-
 
     def filter_by_order(self,queryset, name, value):
         expression  = 'description' if value == 'ascending' else  '-description'

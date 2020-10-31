@@ -4,44 +4,23 @@
 {% block body_block %}
 
 <h1>FAR Page</h1>
-
 <p>Here will find the far list </p> 
-
 <!-- Adding the filter form here --> 
-<div class="container" >
-	<!-- I liked this method below as it shows the table in a better way -->
-	<form  method="GET" >
-		<table>
-			{{ filter.form.as_table}}
-		</table>
-		<button type="submit" class="btn btn-primary" >Search</button>
-	</form>
+<div class="row">
+	<div class="col">
+		<div class="card card-body" >
+			<!-- I liked this method below as it shows the table in a better way -->
+			<form  method="GET" >
+				<table>
+					{{ filter.form.as_table}}
+				</table>
+				<button type="submit" class="btn btn-primary" >Search</button>
+				<a class="btn btn-outline-dark" href="{% url 'far_new' %}">Add New Asset</a>
+			</form>
+		</div>
+	</div>
 </div>
-
-<!-- Below is the pages counter -->
-{% for contact in page_obj %}
-{# Each "contact" is a Contact model object. #}
-<!-- {{ contact.full_name|upper }}<br> -->
-<!-- ... -->
-{% endfor %}
-
-
-<nav aria-label="Page navigation example">
-	<ul class="pagination">
-		{% if page_obj.has_previous %}
-		<li class="page-item"><a class="page-link" href="?page=1">first</a></li>
-		<li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number  }}">previous</a></li>
-		{% endif %}
-		<li class="page-item"><a class="page-link" href="#">Page: {{page_obj.number}}</a></li>
-		{% if page_obj.has_next %}
-		<li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a></li>
-		<li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages  }}">last</a></li>
-		{% endif %}
-	</ul>
-</nav>
-
-<!-- <br> -->
-
+<br>
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -56,7 +35,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		{#<!-- {% for fa in far_1 %} -->#}
+		{#{% for fa in far_1 %}#}
 		{% for fa in filter.qs %}
 		<tr>
 			<th scope="row"> <a href="{% url 'far_detail' pk=fa.pk %}">{{ fa.asset_num }}</a></th>
@@ -75,7 +54,6 @@
 <a class="btn btn-outline-dark" href="{% url 'far_new' %}">Add New Asset</a>
 <br>
 <br>
-
 
 {% endblock %}
 
