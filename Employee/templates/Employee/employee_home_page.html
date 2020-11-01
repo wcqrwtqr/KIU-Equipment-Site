@@ -31,6 +31,7 @@
 			<th scope="col">BU</th>
 			<th scope="col">Update</th>
 			<th scope="col">Delete</th>
+			<th scope="col">PDF</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -43,8 +44,9 @@
 			<td>{{ fa.nationality }}</td>
 			<td>{{ fa.BL }}</td>
 			<td>{{ fa.BU}}</td>
-			<td><a href="{% url 'employee_update' pk=fa.pk   %}" class="btn btn-info btn-sm">Update</a></td>
-			<td><a href="{% url 'employee_delete' pk=fa.pk  %}"class="btn btn-danger btn-sm">Delete</a></td>
+			<td><a href="{% url 'employee_update' pk=fa.pk   %}" class="btn btn-outline-dark"><span class="fa fa-clone"></a></td>
+			<td><a href="{% url 'employee_delete' pk=fa.pk  %}"class="btn btn-outline-dark"><span class="fa fa-eraser"></a></td>
+			<td><a href="{% url 'pdf_employee_view' pk=fa.pk  %}"class="btn btn-outline-dark"><span class="fa fa-pencil"></a></td>
 		</tr>
 		{% endfor %}
 	</tbody>

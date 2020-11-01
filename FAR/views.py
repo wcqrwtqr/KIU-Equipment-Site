@@ -8,15 +8,18 @@ from .filters import FARfilter
 from django import forms
 # Create your views here.
 
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+
 #TODO Make the files upload for the model and forms
 #TODO make the jobs select equipment form
-
+#TODO make the media folder for each job 
 
 
 class FarListView(ListView):
     template_name = 'FAR/far_page.html'
     context_object_name = 'far_1'
-    paginate_by = 35 # Add the number of rows you wish to present in the webpage
     queryset = models.FAR_DB.objects.all()
 
     def get_context_data(self, **kwargs):
@@ -53,4 +56,24 @@ class FarUpdateView(UpdateView):
     success_url = reverse_lazy('far')
 
 
+def FAR_render_pdf_view(request, *args, **kwargs):
+    pk = kwargs.get('pk')
+    far = get_object_or_404(models.FAR_DB, pk=pk)
+
+    template_path = 'FAR/far_pdf.html'
+    context = {'far':far}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'filename="report.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+        html, dest=response )
+    # if error then show some funny view
+    if pisa_status.err:
+        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
 

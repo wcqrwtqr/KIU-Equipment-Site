@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load humanize %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Test file</title>
+    </head>
+    <body>
+
+        <div class=conainer align='middle'>
+
+            <h3>ID : {{ employee.OSID}}</h3>
+            <h3>First Name :  {{ employee.first_name}}</h3>
+            <h3>Last Name :{{ employee.last_name}}</h3>
+            <h3>Nationality  : {{ employee.nationality}}</h3>
+            <h3>Expat  :  {{ employee.isExpat}}</h3>
+            <h3>Employee  : {{ employee.isEmployee}}</h3>
+            <h3>Rotation  :   {{ employee.rotation}}</h3>
+            <h3>BL  :  {{ employee.BL}}</h3>
+            <h3>Grade  : {{ employee.grade}}</h3>
+
+        </div>
+
+    </body>
+</html>

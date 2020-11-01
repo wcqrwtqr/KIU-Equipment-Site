@@ -32,6 +32,7 @@
 			<th scope="col">BU</th>
 			<th scope="col">Update</th>
 			<th scope="col">Delete</th>
+			<th scope="col">PDF</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -44,8 +45,9 @@
 			<td>{{ fa.description }}</td>
 			<td>{{ fa.temp_location }}</td>
 			<td>{{ fa.BU }}</td>
-			<td><a href="{% url 'far_update' pk=fa.pk  %}" class="btn btn-info btn-sm">Update</a></td>
-			<td><a href="{% url 'far_delete' pk=fa.pk  %}"class="btn btn-danger btn-sm">Delete</a></td>
+			<td><a href="{% url 'far_update' pk=fa.pk  %}" class="btn btn-outline-dark"> <span class="fa fa-clone"></a></td>
+			<td><a href="{% url 'far_delete' pk=fa.pk  %}"class="btn btn-outline-dark"><span class="fa fa-eraser"></a></td>
+			<td><a href="{% url 'far_pdf' pk=fa.pk  %}"class="btn btn-outline-dark"><span class="fa fa-pencil"></a></td>
 		</tr>
 		{% endfor %}
 	</tbody>
