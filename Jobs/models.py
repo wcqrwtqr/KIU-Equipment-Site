@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from FAR.models import FAR_DB
+import datetime
 # Create your models here.
 
 class JobsDB(models.Model):
@@ -15,6 +16,9 @@ class JobsDB(models.Model):
     isContract = models.BooleanField(default=True, null=True, blank=True)
     startDate = models.DateField(null=True, blank=True)
     endDate = models.DateField(blank=True,null=True)
+    image = models.ImageField(null=True)
+    updated = models.DateTimeField(auto_now_add=True,blank=True)
+    created = models.DateTimeField(auto_now_add=True, blank=True)
 
     def get_absolute_url(self):
         return reverse('jobs_detail',kwargs={'pk':self.pk})
