@@ -30,6 +30,7 @@
 			<th scope="col">Maintenance Expiry</th>
 			<th scope="col">Update</th>
 			<th scope="col">Delete</th>
+			<th scope="col">PDF</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -41,8 +42,9 @@
 			<td>{{ fa.main_cost  }}</td>
 			<td>{{ fa.main_date_start }}</td>
 			<td>{{ fa.main_date_end }}</td>
-			<td><a href="{% url 'maintenance_update' pk=fa.pk  %}" class="btn btn-info btn-sm">Update</a></td>
-			<td><a href="{% url 'maintenance_delete' pk=fa.pk  %}"class="btn btn-danger btn-sm">Delete</a></td>
+			<td><a href="{% url 'maintenance_update' pk=fa.pk  %}" class="btn btn-outline-dark"><span class="fa fa-clone"></a></td>
+			<td><a href="{% url 'maintenance_delete' pk=fa.pk  %}"class="btn btn-outline-dark"><span class="fa fa-eraser"></a></td>
+			<td><a href="{% url 'pdf_maintenance_view' pk=fa.pk  %}"class="btn btn-outline-dark"><span class="fa fa-pencil"></a></td>
 		</tr>
 		{% endfor %}
 	</tbody>

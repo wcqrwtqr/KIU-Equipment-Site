@@ -6,8 +6,15 @@ from django.urls import  reverse_lazy
 from .forms import *
 from .import models
 from .filters import Jobsfilter
-# Create your views here.
 
+# Below are the imports for the xhtml2pdf 
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+# from django.contrib.staticfiles import finders
+
+
+# Create your views here.
 
 class JobsHomePage(ListView):
     template_name = 'Jobs/jobs_page.html'
@@ -18,6 +25,7 @@ class JobsHomePage(ListView):
         context = super().get_context_data(**kwargs)
         context['filter'] = Jobsfilter(self.request.GET, queryset=self.queryset)
         return context
+
 
 class JobsDetailView(DetailView):
     queryset = JobsDB.objects.all()
@@ -50,3 +58,30 @@ class JobsMasterInfoView(DetailView):
     queryset = JobMasterInfo.objects.all()
     context_object_name = 'jobs_master_info'
     template_name = 'Jobs/jobs_master_info.html'
+
+def job_render_pdf_view(request, *args, **kwargs):
+    pk = kwargs.get('pk')
+    job = get_object_or_404(JobsDB, pk=pk)
+
+    template_path = 'Jobs/jobs_pdf.html'
+    context = {'job':job}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'filename="report.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+        html, dest=response )
+    # if error then show some funny view
+    if pisa_status.err:
+        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
+
+
+
+
+
+
