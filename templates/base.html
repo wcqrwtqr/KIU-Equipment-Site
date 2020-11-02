@@ -16,6 +16,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
+					{% if user.is_authenticated   %}
 					<li class="nav-item ">
 						<a class="nav-link" href="{% url 'far' %}">FAR</a>
 					</li>
@@ -28,8 +29,14 @@
 					<li class="nav-item">
 						<a class="nav-link" href=" {% url 'employee'  %}">Employee</a>
 					</li>
+					{% else  %}
+					<li class="nav-item">
+						<a class="nav-link" href=" {% url 'about'  %}">About us</a>
+					</li>
+					
+					{% endif %}
 					<!-- <li class="nav-item"> -->
-					<!-- 	<a class="nav-link" href=" {% url 'admin:index'  %}">Admin</a> -->
+					{#<!-- 	<a class="nav-link" href=" {% url 'admin:index'  %}">Admin</a> -->#}
 					<!-- </li> -->
 				</ul>
 				<form class="form-inline my-2 my-lg-0">
@@ -44,19 +51,6 @@
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
-		<!-- <script> -->
-			<!-- 	$(function() { -->
-								<!-- 					$( ".datepicker" ).datepicker({ -->
-								<!-- 									changeMonth: true, -->
-								<!-- 									changeYear: true, -->
-								<!-- 									yearRange: "1900:2052", -->
-								<!-- 									// You can put more options here. -->
-								<!-- 								}); -->
-								<!-- 				}); -->
-								<!-- </script> -->
-
-
 
 	</body>
 </html>

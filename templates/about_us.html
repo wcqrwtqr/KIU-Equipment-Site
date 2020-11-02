@@ -5,14 +5,15 @@
 <!-- Start the login process -->
 
 {% if user.is_authenticated   %}
-<div >
+<div class="container">
 <h2>Hi {{ user.username   }}</h2>
 <p>You are all set to go </p>
 <p>Feel free to view all the company data</p>
 <a href="{% url 'logout'  %}"class="btn btn-outline-dark">LOG OUT</a>
 </div>
 {% else  %}
-<h2>You are not logged in</h2> 
+<h2>This is our company and its great</h2> 
+<h2>Try to join us</h2> 
 <a href="{% url 'login'  %}"class="btn btn-outline-dark">LOGIN</a>
 {% endif %}
 
