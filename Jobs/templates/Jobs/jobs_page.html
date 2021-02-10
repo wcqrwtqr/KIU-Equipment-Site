@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block body_block %}
 
 <h1>Jobs Main Page</h1>
@@ -58,4 +59,8 @@
 </table >
 {% endblock %}
 
+{% block scripts  %}
+{{block.super}}
+<script src="{% static 'js/jobScript.js'  %}"></script>
+{% endblock %}
 

@@ -5,7 +5,7 @@ from .models import MaintenanceDB
 class MaintenanceForm (forms.ModelForm):
    class Meta:
       model = MaintenanceDB
-      fields = '__all__' 
+      fields = '__all__'
 
       ms = [('MS-1','MS-1'),('MS-2','MS-2'), ('MS-3','MS-3'), ('MS-4','MS-4'),
             ('Repair','Repair'),('Down','Down'), ('Waiting on Spares','Waiting on Spares'),

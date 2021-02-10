@@ -11,12 +11,12 @@ class Jobsfilter(django_filters.FilterSet):
         model  = JobsDB
         # fields  ="__all__"
         fields = {
-            'JOBID' : ['icontains'],
+            # 'JOBID' : ['icontains'], removed the unwanted fields for a smaller filter set
             'client' : ['icontains'],
             'well' : ['icontains'],
-            'BU' : ['icontains'],
+            # 'BU' : ['icontains'],
             'BL' : ['icontains'],
-            'description' : ['icontains'],
+            # 'description' : ['icontains'],
         }
 
     def filter_by_order(self,queryset,name, value):

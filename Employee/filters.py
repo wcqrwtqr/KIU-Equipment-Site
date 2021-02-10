@@ -14,7 +14,7 @@ class Employeefilter(django_filters.FilterSet):
             'OSID' : ['icontains'],
             'first_name' : ['icontains'],
             'BL' : ['icontains'],
-            'grade' : ['icontains'],
+            # 'grade' : ['icontains'],
         }
 
 

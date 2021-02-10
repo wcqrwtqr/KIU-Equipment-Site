@@ -15,7 +15,7 @@ class FARfilter(django_filters.FilterSet):
             'serial_num' : ['icontains'],
             'BU' : ['icontains'],
             'temp_location' : ['icontains'],
-            'description' : ['icontains'],
+            # 'description' : ['icontains'],
             'BL' : ['icontains'],
         }
 

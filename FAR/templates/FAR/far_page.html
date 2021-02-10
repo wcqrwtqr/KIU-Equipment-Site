@@ -24,9 +24,8 @@
 	</div>
 </div>
 <br>
-
 <table class="table table-striped">
-	<thead>
+	<thead >
 		<tr>
 			<th scope="col">ID</th>
 			<th scope="col">Type</th>
@@ -62,5 +61,13 @@
 <br>
 
 {% endblock %}
+
+{% block scripts  %}
+{{block.super}}
+<script src="{% static 'js/farScript.js'  %}"></script>
+{% endblock %}
+
+
+
 
 

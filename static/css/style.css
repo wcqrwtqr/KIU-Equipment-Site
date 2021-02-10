@@ -1,8 +1,13 @@
 body{
-background-color: #d3e0ea;
+	background-color: #d3e0ea;
 }
 
 .container{
 	background-color: #f6f5f5;
-	padding-bottom: 50px;
+	padding-bottom: 10px;
+}
+
+tfoot{
+	color: black;
+	font-size: 1.3em;
 }

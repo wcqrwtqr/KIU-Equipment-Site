@@ -47,7 +47,19 @@
 			<td><a href="{% url 'pdf_maintenance_view' pk=fa.pk  %}"class="btn btn-outline-dark"><span class="fa fa-pencil"></a></td>
 		</tr>
 		{% endfor %}
+		
 	</tbody>
+	<tfoot>
+		<tr>
+			<td scope="col">Count :{{filter.qs.count}}</td>
+			<td scope="col"></td>
+			<td scope="col"></td>
+			<td scope="col"></td>
+			<td scope="col"></td>
+			<td scope="col"></td>
+			<td scope="col"></td>
+		</tr>
+	</tfoot>
 </table >
 {% endblock %}
 
