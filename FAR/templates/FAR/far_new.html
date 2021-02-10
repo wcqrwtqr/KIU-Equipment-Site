@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block body_block %}
 <h1>New Fixed Asset</h1>
 
 <form method="POST" class="post-form">
     {% csrf_token %}
-    <table>
-        {{form.as_table}}
-    </table>
+        {{form|crispy}}
     <button type="submit" class="btn btn-success">Save</button>
     <a class="btn btn-outline-dark" href="{% url 'far' %}">Cancel</a>
 <br>
+<hr>
+
 </form>
 
 {% endblock %}

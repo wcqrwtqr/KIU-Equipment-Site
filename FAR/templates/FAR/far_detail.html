@@ -3,30 +3,43 @@
 
 {% block body_block %}
 
-<h3>Fixed Asset Register Detail view</h3>
-
-<p>Here is the detail view for the FAR </p> 
-<div class=conainer align='middle'>
-
-  <h3>Equipment Type  : {{ far_detail.equ_type }}</h3>
-  <h3>Asset No : {{ far_detail.asset_num	}}</h3>
-  <h3>Serial No :  {{ far_detail.serial_num	}}</h3>
-  <h3>Description :{{ far_detail.description	}}</h3>
-  <h3>BU  : {{ far_detail.BU	}}</h3>
-  <h3>BL  :  {{ far_detail.BL	}}</h3>
-  <h3>Asset Life  : {{ far_detail.asset_life	}}</h3>
-  <h3>Acquisition Date  : {{ far_detail.acquisition_date	}}</h3>
-  <h3>Acquisition Cost  :   {{ far_detail.acquisition_cost|intcomma}}</h3>
-  <h3>Total Depreciation  :   {{ far_detail.tot_dep_value|intcomma}}</h3>
-  <h3>NBV  :   {{ far_detail.nbv|intcomma}}</h3>
-  <h3>Temp Location  : {{ far_detail.temp_location }}</h3>
-  {% if far_detail.nbv >= 100.00  %}
-  <h2 color='red'>Equipment still chargeable</h2>
-  {% else  %}
-  <h2 color='blue'>Equipment fully depreciated</h2>
-  {% endif  %}
-  <a class="btn btn-outline-dark" href="{% url 'far' %}">Back to FAR</a>
+<div class="card ">
+  <div class="card-header">
+    Fixed Asset Register Detail view
+  </div>
+  <div class="card-body">
+    <h3 class="card-title">  Equipment Type:  <strong>  {{ far_detail.equ_type }} </strong>  </h3>
+    <div class="row">
+      <div class="col">
+        <p class='card-text'>Equipment Type  : {{ far_detail.equ_type }}</p>
+        <p class='card-text'>Asset No : {{ far_detail.asset_num	}}</p>
+        <p class='card-text'>Serial No :  {{ far_detail.serial_num	}}</p>
+        <p class='card-text'>Description :{{ far_detail.description	}}</p>
+        <p class='card-text'>BU  : {{ far_detail.BU}}</p>
+        <p class='card-text'>BL  :  {{ far_detail.BL}}</p>
+      </div>
+      <div class="col">
+        <p class='card-text'>Asset Life  : {{ far_detail.asset_life	}}</p>
+        <p class='card-text'>Acquisition Date  : {{ far_detail.acquisition_date	}}</p>
+        <p class='card-text'>Acquisition Cost  :   {{ far_detail.acquisition_cost|intcomma}}</p>
+        <p class='card-text'>Total Depreciation  :   {{ far_detail.tot_dep_value|intcomma}}</p>
+        <p class='card-text'>NBV  :   {{ far_detail.nbv|intcomma}}</p>
+        <p class='card-text'>Temp Location  : {{ far_detail.temp_location }}</p>
+      </div>
+    </div>
+    <br>
+    
+    <a class="btn btn-primary " href="{% url 'far' %}">Back to FAR</a>
+  </div>
+  <div class="card-footer text-muted">
+    {% if far_detail.nbv >= 100.00  %}
+    Equipment still chargeable
+    {% else  %}
+    Equipment fully depreciated
+    {% endif  %}
+  </div>
 </div>
+
 
 {% endblock %}
 

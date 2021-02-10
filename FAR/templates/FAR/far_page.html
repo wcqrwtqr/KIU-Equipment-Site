@@ -1,18 +1,21 @@
 {% extends 'base.html' %}
-{% load bootstrap  %}
-
+<!-- % load bootstrap  %} -->
+{% load crispy_forms_tags  %}
+{% load static %}
 {% block body_block %}
 
-<h1>FAR Page</h1>
-<p>Here will find the far list </p> 
+<h1>Fixed Asset Register</h1>
+<p>Below is the list of the equipment available in KIU location</p> 
 <!-- Adding the filter form here --> 
+
 <div class="row">
 	<div class="col">
-		<div class="card card-body" >
+		<div class="card card-body"  >
 			<!-- I liked this method below as it shows the table in a better way -->
 			<form  method="GET" >
 				<table>
 					{{ filter.form.as_table}}
+					<!-- { filter.form | crispy}} -->
 				</table>
 				<button type="submit" class="btn btn-primary" >Search</button>
 				<a class="btn btn-outline-dark" href="{% url 'far_new' %}">Add New Asset</a>
@@ -21,6 +24,7 @@
 	</div>
 </div>
 <br>
+
 <table class="table table-striped">
 	<thead>
 		<tr>

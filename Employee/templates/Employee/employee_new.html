@@ -1,15 +1,14 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block body_block %}
-    <h1>Add New Employee</h1>
+<h1>Add New Employee</h1>
 
-    <form method="POST" class="job-form">
+<form method="POST" class="job-form">
     {% csrf_token %}
-    <table>
-    {{form.as_table}}
-    </table>
+        {{form|crispy}}
     <button type="submit" class="btn btn-success">Save</button>
-	<a class="btn btn-outline-dark" href="{% url 'employee' %}">Cancel</a>
-    </form>
+    <a class="btn btn-outline-dark" href="{% url 'employee' %}">Cancel</a>
+</form>
 
 {% endblock %}
