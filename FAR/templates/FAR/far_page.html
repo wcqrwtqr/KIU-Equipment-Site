@@ -40,6 +40,8 @@
 	</thead>
 	<tbody>
 		{#{% for fa in far_1 %}#}
+
+
 		{% for fa in filter.qs %}
 		<tr>
 			<th scope="row"> <a href="{% url 'far_detail' pk=fa.pk %}">{{ fa.asset_num }}</a></th>
@@ -53,6 +55,7 @@
 			<td><a href="{% url 'far_pdf' pk=fa.pk  %}"class="btn btn-outline-dark"><span class="fa fa-pencil"></a></td>
 		</tr>
 		{% endfor %}
+
 	</tbody>
 </table>
 

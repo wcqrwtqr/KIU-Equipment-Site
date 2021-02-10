@@ -12,9 +12,6 @@ from django.http import HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
 
-#TODO Make the files upload for the model and forms
-#TODO make the jobs select equipment form
-#TODO make the media folder for each job 
 
 
 class FarListView(ListView):
