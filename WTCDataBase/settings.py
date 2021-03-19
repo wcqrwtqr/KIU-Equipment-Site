@@ -24,9 +24,10 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
 SECRET_KEY = 'z0&_3f56s^795ne%2==t+$r%ww+3j#ne*y#8j!fg1!wjrht^j8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 
 # Application definition
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'django_filters',
     'bootstrapform',
     'crispy_forms',
+    'whiltenoice.server_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -88,6 +90,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+WHITENOISE_USE_FINDERS = True
 
 
 # Password validation
@@ -137,4 +140,4 @@ LOGOUT_REDIRECT_URL='home'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
